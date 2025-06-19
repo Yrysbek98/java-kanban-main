@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 class InMemoryHistoryManagerTest {
     TaskManager taskManager = Managers.getDefaultTaskManager();
+
     @Test
     void add() {
         taskManager.addTask(new Epic("Первая задача", "Описание"));
@@ -23,6 +24,7 @@ class InMemoryHistoryManagerTest {
         int actualSizeOfArray = taskManager.getHistory().size();
         Assertions.assertNotEquals(numberOfTasks, actualSizeOfArray, "Неверная реализация метода add()");
     }
+
     @Test
     void remove() {
         Task task1 = new Task("Задание 1", "Описание", TaskStatus.NEW);
@@ -40,9 +42,10 @@ class InMemoryHistoryManagerTest {
         int countOfHistoryList = taskManager.getHistory().size();
         taskManager.remove(indexOfTask2);
         int countAfterRemoveHistory = taskManager.getHistory().size();
-        Assertions.assertNotEquals(countOfHistoryList,countAfterRemoveHistory, "Неверная реализация метода remove()" );
+        Assertions.assertNotEquals(countOfHistoryList, countAfterRemoveHistory, "Неверная реализация метода remove()");
 
     }
+
     @Test
     void checkDuplicate() {
         ArrayList<Integer> countsOfGetTasks = new ArrayList<>();

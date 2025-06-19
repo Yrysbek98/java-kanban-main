@@ -17,7 +17,7 @@ public interface TaskManager {
 
     void deleteAllTasks(String type);
 
-    ArrayList<Integer> getSubtasks(int id );
+    ArrayList<Integer> getSubtasks(int id);
 
     ArrayList<Task> getHistory();
 

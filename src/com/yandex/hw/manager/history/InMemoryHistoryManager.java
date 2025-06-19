@@ -2,6 +2,7 @@
 package com.yandex.hw.manager.history;
 
 import com.yandex.hw.model.Task;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +12,7 @@ public class InMemoryHistoryManager implements HistoryManager {
     private final Map<Integer, Node<Task>> data = new HashMap<>();
     private Node<Task> head;
     private Node<Task> tail;
-    private static final int MAX_HISTORY_SIZE = 10;
+
 
     private static class Node<Task> {
         public Task data;
@@ -62,12 +63,6 @@ public class InMemoryHistoryManager implements HistoryManager {
             removeNode(data.get(id));
             data.remove(id);
         }
-
-        if (data.size() >= MAX_HISTORY_SIZE && head != null) {
-            data.remove(head.data.getId());
-            removeNode(head);
-        }
-
         Node<Task> newNode = linkLast(task);
         data.put(id, newNode);
 
